@@ -1,7 +1,7 @@
 import pandas as pd
 from termcolor import colored
 
-def describe(df, target=None):
+def describe(df, target=None, verbose=True):
     '''
     Return a DataFrame where the rows are columns of the original
     DataFrame (df) with informations like type, count, unique, nulls and
@@ -13,6 +13,9 @@ def describe(df, target=None):
 
     If a target name is provided (target), we will have a column "corr" that shows
     the correlation beetween the row variable and the target.
+
+    If verbose is True, the function will also print other informations like
+    the shape and column names.
     '''
     size = df.shape[0]
     numerical_cols = [col for col in df.columns if
@@ -34,12 +37,13 @@ def describe(df, target=None):
         corr = df.corr()[target].rename('corr')
         result = pd.concat([types, counts, distincts, nulls, missing_ration, uniques, skewness, kurtosis, corr], axis = 1, sort=False)
 
-    print('___________________________')
-    print('Data shape:', df.shape)
-    print(colored(f"Train data columns", color = 'blue', attrs= ['dark', 'bold']))
-    print(colored(df.columns, color = 'green'))
-    print(colored('%d columns' % df.columns.size, color = 'red', attrs= ['dark', 'bold']))
-    print(colored(df.dtypes.value_counts(), color = 'red'))
-    print('___________________________')
+    if verbose:
+        print('___________________________')
+        print('Data shape:', df.shape)
+        print(colored(f"Train data columns", color = 'blue', attrs= ['dark', 'bold']))
+        print(colored(df.columns, color = 'green'))
+        print(colored('%d columns' % df.columns.size, color = 'red', attrs= ['dark', 'bold']))
+        print(colored(df.dtypes.value_counts(), color = 'red'))
+        print('___________________________')
 
     return result
