@@ -1,4 +1,11 @@
 # Notes on Data Science
 
 My theme for Jupyter Notebooks:
-`jt -t onedork -fs 95 -altp -tfs 13 -nfs 13 -ofs 9 -fs 12 -cellw 88% -T -vim`
+
+- Code Font: Fira Code 10
+- Notebook Font: ptsans 11
+- Toolbar visible (-T)
+- Name & Logo visible (-N)
+- Kernel logo visible (-kl)
+
+`jt -t monokai -f fira -fs 10 -nf ptsans -nfs 11 -N -kl -cellw 95% -T -vim`
