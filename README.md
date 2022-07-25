@@ -7,5 +7,6 @@ My theme for Jupyter Notebooks:
 - Toolbar visible (-T)
 - Name & Logo visible (-N)
 - Kernel logo visible (-kl)
+- Pandas Font Size (dfs): 11
 
-`jt -t monokai -f fira -fs 10 -nf ptsans -nfs 11 -N -kl -cellw 95% -T -vim`
+`jt -t monokai -f fira -fs 10 -nf ptsans -nfs 11 -dfs 11 -N -kl -cellw 95% -T -vim`
